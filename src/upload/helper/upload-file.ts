@@ -1,6 +1,5 @@
 import { v4 as uuid } from 'uuid';
 import { S3, Endpoint } from 'aws-sdk';
-import { InvalidUrlError } from 'src/common/errors/errors';
 
 export const uploadFileHelper = async (
   file: Express.Multer.File,
@@ -19,9 +18,8 @@ export const uploadFileHelper = async (
         Key: fileName,
         ACL: 'public-read',
       },
-      err => {
+      (err) => {
         if (err) {
-          throw new InvalidUrlError();
         }
       },
     )
