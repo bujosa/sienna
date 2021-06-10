@@ -8,8 +8,6 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import { TECHNICIAN } from 'src/common/auth/arrays/authorized-roles.arrays';
-import { AuthorizedRoles } from 'src/common/auth/decorators/authorized-roles.decorator';
 import { Picture } from './dtos/picture.dto';
 import { UploadService } from './upload.service';
 
@@ -17,7 +15,6 @@ import { UploadService } from './upload.service';
 export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
 
-  @AuthorizedRoles(...TECHNICIAN)
   @Post('file')
   @UseInterceptors(
     FileInterceptor('file', {
@@ -30,13 +27,11 @@ export class UploadController {
     return await this.uploadService.uploadFile(file);
   }
 
-  @AuthorizedRoles(...TECHNICIAN)
   @Delete('file')
   async deleteFile(@Body() picture: Picture) {
     return await this.uploadService.deleteFile(picture);
   }
 
-  @AuthorizedRoles(...TECHNICIAN)
   @Post('files')
   @UseInterceptors(
     FilesInterceptor('files', null, {
