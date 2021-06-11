@@ -7,7 +7,6 @@ import { UploadModule } from './upload/upload.module';
     ConfigModule.forRoot({
       envFilePath: `./env/.sienna-nest.env`,
     }),
-    ,
     UploadModule,
   ],
 })
