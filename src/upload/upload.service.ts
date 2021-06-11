@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Picture } from './dtos/picture.dto';
-import { deleteFileHelper } from './helper/delete-file';
-import { uploadFileHelper } from './helper/upload-file';
+import { deleteFileHelper } from './helper/S3/delete-file';
+import { uploadFileHelper } from './helper/S3/upload-file';
 
 @Injectable()
 export class UploadService {
