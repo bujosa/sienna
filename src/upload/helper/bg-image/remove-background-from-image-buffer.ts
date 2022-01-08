@@ -14,6 +14,7 @@ export const removeBackgroundFromImageBuffer = async (
   const base64img = decodingBuffer(buffer);
   let resultImg;
 
+  // Remove background from image base64
   await removeBackgroundFromImageBase64({
     base64img,
     apiKey: process.env.REMOVE_BG_KEY,
