@@ -6,6 +6,7 @@ export const uploadFileHelper = async (
   file: Express.Multer.File,
 ): Promise<string> => {
   file.buffer = await removeBackgroundFromImageBuffer(file.buffer);
+
   const spacesEndpoint = new Endpoint(process.env.SPACE_ENDPOINT);
   const s3 = new S3({ endpoint: spacesEndpoint });
   const fileName = `${Date.now()}-${uuid()}.${file.originalname
