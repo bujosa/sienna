@@ -24,12 +24,12 @@ export class UploadController {
     }),
   )
   async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return await this.uploadService.uploadFile(file);
+    return this.uploadService.uploadFile(file);
   }
 
   @Delete('file')
   async deleteFile(@Body() picture: Picture) {
-    return await this.uploadService.deleteFile(picture);
+    return this.uploadService.deleteFile(picture);
   }
 
   @Post('files')
@@ -41,6 +41,6 @@ export class UploadController {
   async uploadFiles(
     @UploadedFiles() files: Express.Multer.File[],
   ): Promise<string[]> {
-    return await this.uploadService.uploadFiles(files);
+    return this.uploadService.uploadFiles(files);
   }
 }
