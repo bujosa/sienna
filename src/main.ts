@@ -3,7 +3,6 @@ import { config } from 'aws-sdk';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  // Initialize s3 config
   config.update({
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_KEY,
